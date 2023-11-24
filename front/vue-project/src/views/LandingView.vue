@@ -1,0 +1,151 @@
+<template>
+    <div class="landing">
+        <!-- <div class="landing" style="background-color: black; z-index: 10000; width : 100vw; height : 100vh; position: absolute; top:0;">
+            <button style="background-color: white;"><a href="/home">enter</a></button>
+        </div> -->
+        
+        <Earth2View />
+  
+    
+            <a @click.prevent="moveToHome" href="">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            E n t e r 
+        </a> 
+    
+            <!-- <a @click.prevent="moveToHome" href="">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Neon Button
+        </a> -->
+        
+    </div>
+</template>
+
+<script setup>
+import Earth2View from '@/components/Earth2.vue';
+import {useRouter} from 'vue-router'
+const router = useRouter()
+const moveToHome = function() {
+    setTimeout(() => {
+    console.log(1);
+    router.push({ name: 'home' });
+  },1000)
+}
+</script>
+
+<style scoped>
+
+.landing {
+    position:absolute;
+    
+    top:0;
+    margin : 0;
+    padding: 0;
+    display : flex;
+    justify-content: center;
+    flex-direction: column;
+   align-items: center;
+   min-height: 100vh;
+   width : 100vw;
+   background: #031321;
+   font-family: consolas;
+   z-index: 6000;
+}
+
+a{
+    position : relative;
+    display : inline-block;
+    padding : 15px 30px;
+    color : #2196f3;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-decoration: none;
+    font-size : 24px;
+    overflow:hidden;
+    transition : 0.2s
+}
+
+a:hover { 
+    color : #255784;
+    background: #2196f3;
+    box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
+    transition-delay: 1s;
+}
+
+a span {
+    position : absolute;
+    display : block;
+    
+}
+
+a span:nth-child(1)
+{
+    top : 0;
+    left : -100%;
+    width : 100%;
+    height : 2px;
+    background : linear-gradient(90deg,transparent,#2196f3);
+    
+}
+
+a:hover span:nth-child(1)
+{
+    left: 100%;
+    transition: 1s;
+}
+a span:nth-child(3)
+{
+    bottom : 0;
+    right : -100%;
+    width : 100%;
+    height : 2px;
+    background : linear-gradient(90deg,transparent,#2196f3);
+    /* background : linear-gradient(90deg,transparent,#2196f3) */
+}
+
+a:hover span:nth-child(3)
+{
+    right: 100%;
+    transition: 1s;
+    transition-delay : 0.5s;
+}
+
+
+a span:nth-child(2)
+{
+    top : -100%;
+    right : 0;
+    width : 2px;
+    height : 100%;
+    background : linear-gradient(0deg,transparent,#2196f3)
+    /* background : linear-gradient(90deg,transparent,#2196f3) */
+}
+
+a:hover span:nth-child(2)
+{
+    top: 100%;
+    transition: 1s;
+    transition-delay : 0.25s;
+}
+a span:nth-child(4)
+{
+    bottom : -100%;
+    left : 0;
+    width : 2px;
+    height : 100%;
+    background : linear-gradient(360deg,transparent,#2196f3)
+    /* background : linear-gradient(90deg,transparent,#2196f3) */
+}
+
+a:hover span:nth-child(4)
+{
+    bottom: 100%;
+    transition: 1s;
+    transition-delay : 0.75s;
+}
+</style>
